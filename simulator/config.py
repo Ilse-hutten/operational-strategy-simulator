@@ -1,0 +1,14 @@
+# config.py
+
+BASE_ARR = 10_000_000
+CHURN_RATE = 0.06
+CUSTOMER_COUNT = 500_000
+CAC = 45
+MARGIN = 0.75
+TIME_PERIOD_MONTHS = 12
+
+CONFIDENCE_MULTIPLIER = {
+    "High": 1.0,
+    "Medium": 0.75,
+    "Low": 0.5
+}

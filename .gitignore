@@ -1,0 +1,52 @@
+# --------------------
+# Python
+# --------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+*.log
+
+# Byte-compiled / optimized / DLL files
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter/IPython checkpoints
+.ipynb_checkpoints/
+
+# Streamlit cache and logs
+.streamlit/
+**/.streamlit/
+**/streamlit_app.py.cache
+**/.stcache/
+
+# VS Code project files
+.vscode/
+
+# OS / system files
+.DS_Store
+Thumbs.db
+
+# Project-specific
+data/*.csv          # 👈 If your CSVs are generated or contain sensitive info
+*.db
+*.sqlite3
+*.pkl
+*.sav
+*.h5
+logs/
+outputs/
+__results__/
+
+# Env config
+.env
+.env.*
