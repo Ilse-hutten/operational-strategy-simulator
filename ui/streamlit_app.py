@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from ui.utils import format_dataframe
+from utils import format_dataframe
 from simulator.strategy_engine import load_initiatives
 from scipy.stats import gaussian_kde
 import numpy as np
