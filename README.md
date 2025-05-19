@@ -64,7 +64,7 @@ cd operational-strategy-simulator
 ```bash
 pip install -r requirements.txt
 ```
-### 2. Launch the app
+### 3. Launch the app
 ```bash
 streamlit run ui/streamlit_app.py
 ```
