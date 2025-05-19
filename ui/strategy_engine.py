@@ -1,5 +1,5 @@
 import pandas as pd
-from simulator.config import BASE_ARR, CONFIDENCE_MULTIPLIER
+from config import BASE_ARR, CONFIDENCE_MULTIPLIER
 
 def load_initiatives(path: str) -> pd.DataFrame:
     df = pd.read_csv(path)
