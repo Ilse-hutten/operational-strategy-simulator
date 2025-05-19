@@ -1,8 +1,8 @@
 # Operational Strategy Simulator
 
-A Streamlit app to simulate and optimize strategic initiatives based on cost, engineering constraints, and ARR impact. It enables users to select initiatives manually or use an automated knapsack-based optimizer, and visualize expected ROI distributions under uncertainty using Monte Carlo simulations.
+A Streamlit app to simulate and optimize strategic initiatives based on cost, engineering constraints, and ARR/ROI impact. It enables users to select initiatives manually or use an automated knapsack-based optimizer, and visualize expected ROI distributions under uncertainty using Monte Carlo simulations.
 
-![App Screenshot](visuals/initiative_performance.png)
+<img src="visuals/initiative_performance.png" alt="relationships" width="700"/>
 
 ---
 
@@ -24,38 +24,32 @@ A Streamlit app to simulate and optimize strategic initiatives based on cost, en
 
 ---
 
-## Optimization Logic
+### Optimization Logic
 
-Each initiative \( i \) is represented as a binary variable \( x_i \in \{0, 1\} \).
+- Each initiative is treated as a **binary decision**:
+  - `1` = selected  
+  - `0` = not selected
 
-**Maximize ARR:**
+- The model **maximizes** either:
+  - **ARR Impact** → total expected ARR from selected initiatives
+  - **ROI (Net Gain)** → total ARR minus total cost from selected initiatives
 
-\[
-\max \sum_i a_i \cdot x_i
-\]
+- **Objective functions**:
+  - Maximize ARR: sum of `(ARR Impact × selected)` across initiatives
+  - Maximize ROI: sum of `((ARR Impact - Cost) × selected)` across initiatives
 
-**Maximize ROI (net gain):**
+- **Subject to constraints**:
+  - Total **cost** of selected initiatives ≤ available **budget**
+  - Total **engineering days** required ≤ available **engineering capacity**
 
-\[
-\max \sum_i (a_i - c_i) \cdot x_i
-\]
+- Solved using a **binary knapsack optimization** model via `pulp`
 
-**Subject to:**
-
-\[
-\sum_i c_i \cdot x_i \leq \text{budget}
-\]
-
-\[
-\sum_i d_i \cdot x_i \leq \text{engineering limit}
-\]
 
 ---
 
-## Visuals
 
 ### Monte Carlo ROI Simulation
-![Monte Carlo ROI](visuals/monte_carlo_roi.png)
+<img src="visuals/monte_carlo_roi.png" alt="Monte Carlo ROI" width="400"/>
 
 ---
 
